@@ -1,3 +1,11 @@
+<div style="margin-bottom: 16px">
+  <button [ngClass]="{'red': group === 'forum'}" (click)="changeGroup('forum')">Forum</button>
+  <button [ngClass]="{'red': group === 'gamers'}" (click)="changeGroup('gamers')">Gamers</button>
+  <button [ngClass]="{'red': group === 'work'}" (click)="changeGroup('work')">Work</button>
+  <button [ngClass]="{'red': group === 'weekend'}" (click)="changeGroup('weekend')">Weekend</button>
+</div>
+
+
 <div class="container-fluid">
   <form (ngSubmit)="sendMessage()" #messageForm="ngForm">
     <div class="form-group row">
@@ -35,9 +43,9 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let message of messages; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>{{ message }}</td>
+        <tr *ngFor="let message of groupMessages; let i = index">
+          <td>{{ message.id }}</td>
+          <td>{{ message.text }}</td>
         </tr>
         </tbody>
       </table>
